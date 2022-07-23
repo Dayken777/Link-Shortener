@@ -1,6 +1,4 @@
 <?php
-/*------------ redirect.php -------------*/
-// теперь делаем сам редирект на готовую ссылку
 require_once('DataBase.php');
 $db = new DB;
 $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -11,8 +9,6 @@ if($select){
     $result = [
         'url' => $select['short_url'],
     ];
-    // а теперь собственно сам редирект
     header('location: '.$select[0]['link']);
-    // проверяем
 }
 ?>
